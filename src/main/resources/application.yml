@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: hike-food
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hiking-features
+    username: postgres
+    password: admin
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+  flyway:
+    schemas: hike_food
+    table: flyway_schema_history
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 1000
+          order_inserts: true
+          order_updates: true
+          lob:
+            non_contextual_creation: true
+    open-in-view: false
+  main:
+    banner-mode: off
