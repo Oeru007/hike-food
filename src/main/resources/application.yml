@@ -2,7 +2,7 @@ spring:
   application:
     name: hike-food
   datasource:
-    url: jdbc:postgresql://localhost:5432/hiking-features
+    url: jdbc:postgresql://localhost:5432/hiking-features?currentSchema=hike_food
     username: postgres
     password: admin
     hikari:
@@ -26,3 +26,6 @@ spring:
     open-in-view: false
   main:
     banner-mode: off
+springdoc:
+  api-docs:
+    path: /api-docs
