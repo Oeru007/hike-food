@@ -9,6 +9,8 @@ import ru.oeru.hikefood.dto.response.ProductResponse;
 import ru.oeru.hikefood.mapper.ProductMapper;
 import ru.oeru.hikefood.repository.ProductRepository;
 
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Slf4j
@@ -25,5 +27,9 @@ public class ProductService {
 
     public Product create(CreateProductRequest request) {
         return productRepository.saveAndFlush(productMapper.toEntityFromRequest(request));
+    }
+
+    public List<Product> getAllByIdIn(Set<UUID> ids) {
+        return productRepository.getAllByIdIn(ids);
     }
 }

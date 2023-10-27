@@ -1,9 +1,10 @@
 package ru.oeru.hikefood.repository;
 
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
 import ru.oeru.hikefood.domain.Product;
 
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public interface ProductRepository extends JpaRepository<Product, UUID> {
@@ -15,4 +16,6 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
 
         return findById(id).orElseThrow(() -> new RuntimeException(String.format("Продукт с id %s не найден", id)));
     }
+
+    List<Product> getAllByIdIn(Set<UUID> ids);
 }
